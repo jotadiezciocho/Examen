@@ -1,0 +1,31 @@
+create database Examen2;
+#drop database Examen2;
+use Examen2;
+Create table Empresa(
+ID_Empresa int auto_increment,
+Nombre_Empresa VARCHAR(50),
+Pers_Contact VARCHAR(50),
+Mail VARCHAR(50),
+N_telefono int,
+Direc_Empresa VARCHAR(50),
+primary key (ID_Empresa)
+);
+
+Create table Alumno(
+ID_Alumno int auto_increment,
+Nombre VARCHAR(50),
+Apellido VARCHAR(50),
+DNI VARCHAR(50),
+Empresa_asig VARCHAR(50),
+Horario VARCHAR(50),
+primary key (ID_Alumno)
+);
+
+Create table Horario(
+ID_Horario int auto_increment,
+Completo time,
+Parcial time,
+primary key (ID_horario),
+fk_id_Horario int,
+foreign key(fk_id_Horario) References Horario(ID_Horario)
+);
