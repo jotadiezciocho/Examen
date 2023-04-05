@@ -1,0 +1,29 @@
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "Valladolid2023";
+$dbname = "examen2";
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+  die("Conexión fallida: " . mysqli_connect_error());
+}
+
+
+$sql = "SELECT Nombre_Empresa FROM empresa"; 
+$resultado = mysqli_query($conn, $sql);
+
+
+if (mysqli_num_rows($resultado) > 0) {
+  $fila = mysqli_fetch_assoc($resultado);
+  $nombre_empresa = $fila["Nombre_Empresa"];
+}
+
+
+echo "El nombre de la empresa es: " . $nombre_empresa;
+
+
+mysqli_close($conn);
+
+?>
